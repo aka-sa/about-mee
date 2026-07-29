@@ -298,12 +298,12 @@ with demo_tab1:
 # ─── Tab 3: Prompt Engineering Lab ───
 with demo_tab3:
     st.markdown("### 🧠 Prompt Engineering Lab")
-    st.markdown("""
+    st.markdown("
     <p style="color:#555; font-size:0.9rem;">
     Explore prompt patterns used in <strong>MediLens</strong> (94% prescription accuracy) and 
     <strong>STEM Helper</strong> (accessible math for blind learners). All prompts are from my real production systems.
     </p>
-    """, unsafe_allow_html=True)
+    ", unsafe_allow_html=True)
     prompt_style = st.selectbox("Select prompt style:", [
         "Chain-of-Thought (MediLens)", "Few-Shot (FormGen-AI)", 
         "System Prompt (STEM Helper)", "ReAct (MediLens Agent)"])
