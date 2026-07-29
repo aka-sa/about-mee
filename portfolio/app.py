@@ -315,7 +315,7 @@ with demo_tab3:
 3. Then, I verify the dosage: 500mg 3x daily is within safe range (250-500mg every 8hrs)
 4. Finally, I flag any contraindications: None found for this patient
 → Result: PRESCRIPTION VALID (Confidence: 0.94)",
-            "Few-Shot (FormGen-AI)": """Extract structured data from these documents:
+            "Few-Shot (FormGen-AI)": "Extract structured data from these documents:
 
 Example 1: 
   Input: "Invoice #1234, Date: 2024-03-15, Amount: $2,450.00"
@@ -325,8 +325,8 @@ Example 2:
   Input: "Patient: John Doe, DOB: 1985-06-20, Rx: Metformin 500mg"
   Output: {"patient": "John Doe", "dob": "1985-06-20", "medication": "Metformin 500mg"}
 
-Now extract: [your document input]""",
-            "System Prompt (STEM Helper)": """You are STEM Helper, an accessibility assistant for blind learners. 
+Now extract: [your document input]",
+            "System Prompt (STEM Helper)": "You are STEM Helper, an accessibility assistant for blind learners. 
 Your role is to convert mathematical expressions into hierarchical semantic descriptions.
 
 Rules:
@@ -337,8 +337,8 @@ Rules:
 - For integrals: describe the bounds, integrand, and variable
 - For matrices: describe rows and columns spatially
 
-Example: "x² + 3x - 5" → "A quadratic expression: x squared, plus 3 times x, minus 5. The dominant term is x raised to the power of 2." """,
-            "ReAct (MediLens Agent)": """Thought: I need to identify the medication in this handwritten prescription.
+Example: "x² + 3x - 5" → "A quadratic expression: x squared, plus 3 times x, minus 5. The dominant term is x raised to the power of 2." ,
+            "ReAct (MediLens Agent)": "Thought: I need to identify the medication in this handwritten prescription.
 Action: ocr_scan(prescription_image)
 Observation: Found "Lisinopril 10mg" (confidence: 0.92)
 
@@ -350,20 +350,20 @@ Thought: I need to flag this risk to the pharmacist.
 Action: flag_risk("hyperkalemia_risk", severity="moderate", evidence="ACE inhibitor + K+ supplement")
 Observation: Risk flagged. Patient record updated.
 
-→ Final Answer: Prescription contains Lisinopril 10mg. ⚠️ INTERACTION WARNING: Potassium supplementation with ACE inhibitors may cause hyperkalemia. Recommend monitoring serum potassium levels."""
+→ Final Answer: Prescription contains Lisinopril 10mg. ⚠️ INTERACTION WARNING: Potassium supplementation with ACE inhibitors may cause hyperkalemia. Recommend monitoring serum potassium levels."
         }
         st.code(examples[prompt_style], language="text")
 
 # ─── Tab 4: Multimodal Vision Demo ───
 with demo_tab4:
     st.markdown("### 👁️ Multimodal Vision Demo")
-    st.markdown("""
+    st.markdown("
     <p style="color:#555; font-size:0.9rem;">
     Simulates how <strong>MediLens</strong> uses <strong>Qwen2-VL</strong> to process handwritten prescriptions 
     and <strong>STEM Helper</strong> uses <strong>PaddleOCR</strong> to understand mathematical content. 
     Combining vision + text improved MediLens accuracy from 78% → 94%.
     </p>
-    """, unsafe_allow_html=True)
+    ", unsafe_allow_html=True)
     vision_mode = st.selectbox("Select vision mode:", [
         "🏥 Prescription Parsing (MediLens)", 
         "📐 Math Accessibility (STEM Helper)",
@@ -371,7 +371,7 @@ with demo_tab4:
     
     if st.button("Run Vision Pipeline", type="primary", key="vision_btn"):
         if vision_mode == "🏥 Prescription Parsing (MediLens)":
-            st.markdown("""
+            st.markdown("
             <div class="card">
             <strong>📸 Input:</strong> Handwritten prescription image<br>
             <strong>🔍 Step 1 — PaddleOCR Layout Detection:</strong> Detected 3 text regions (header, medication list, dosage)<br>
@@ -383,9 +383,9 @@ with demo_tab4:
             <strong>✅ Output:</strong> Parsed successfully — 2 medications, 1 dosage instruction, 0 interaction warnings<br>
             <em>Accuracy: 94% (validated on 500+ handwritten prescriptions)</em>
             </div>
-            """, unsafe_allow_html=True)
+            ", unsafe_allow_html=True)
         elif vision_mode == "📐 Math Accessibility (STEM Helper)":
-            st.markdown("""
+            st.markdown("
             <div class="card">
             <strong>📸 Input:</strong> LaTeX expression: ∫₀¹ x² dx<br>
             <strong>🔍 Step 1 — PaddleOCR Recognition:</strong> Detected integral symbol, subscript 0, superscript 1, x squared, dx<br>
@@ -395,9 +395,9 @@ with demo_tab4:
             <strong>✅ Output:</strong> Accessible description generated — 90% effectiveness (validated by 50+ visually impaired users)<br>
             <em>Efficiency improvement: 40% over traditional alt-text approaches</em>
             </div>
-            """, unsafe_allow_html=True)
+            ", unsafe_allow_html=True)
         else:
-            st.markdown("""
+            st.markdown("
             <div class="card">
             <strong>📸 Input:</strong> Scanned invoice form (mixed handwritten + printed)<br>
             <strong>🔍 Step 1 — Dual OCR Pipeline:</strong><br>
@@ -411,7 +411,7 @@ with demo_tab4:
             <strong>✅ Output:</strong> Extraction complete — 95%+ accuracy across all fields<br>
             <em>Pipeline: PaddleOCR → Tesseract → FAISS → Qwen-VL → Structured JSON</em>
             </div>
-            """, unsafe_allow_html=True)
+            ", unsafe_allow_html=True)
 
 st.markdown('---')
 
