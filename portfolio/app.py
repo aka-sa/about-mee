@@ -252,7 +252,7 @@ st.markdown('---')
 # 2. LIVE AI DEMO LAB
 # ═══════════════════════════════════════════════════════════
 st.markdown('<div id="demo"></div>', unsafe_allow_html=True)
-st.markdown('<h2 class="section-title">🤖 Live AI Demo Lab</h2>', unsafe_allow_html=True)"""
+st.markdown('<h2 class="section-title">🤖 Live AI Demo Lab</h2>', unsafe_allow_html=True)
 
 demo_tab1, demo_tab3, demo_tab4 = st.tabs([
     "💬 AI Agent Chat", "🧠 Prompt Engineering Lab", "👁️ Multimodal Vision Demo"])
@@ -297,23 +297,24 @@ with demo_tab1:
 # ─── Tab 3: Prompt Engineering Lab ───
 with demo_tab3:
     st.markdown("### 🧠 Prompt Engineering Lab")
-    st.markdown("
+    st.markdown("""
     <p style="color:#555; font-size:0.9rem;">
-    Explore prompt patterns used in <strong>MediLens</strong> (94% prescription accuracy) and 
-    <strong>STEM Helper</strong> (accessible math for blind learners). All prompts are from my real production systems.
+    Explore prompt patterns used in <strong>MediLens</strong> (94% prescription accuracy)
+    and <strong>STEM Helper</strong> (accessible math for blind learners).
+    All prompts are from my real production systems.
     </p>
-    ", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
     prompt_style = st.selectbox("Select prompt style:", [
         "Chain-of-Thought (MediLens)", "Few-Shot (FormGen-AI)", 
         "System Prompt (STEM Helper)", "ReAct (MediLens Agent)"])
     if st.button("Generate Example", type="primary"):
         examples = {
             "Chain-of-Thought (MediLens)": "Let me think step by step about this prescription...
-1. First, I'll use Qwen2-VL to parse the handwritten text → "Amoxicillin 500mg, 3x daily"
-2. Next, I check the drug database for Amoxicillin: antibiotic, penicillin class
-3. Then, I verify the dosage: 500mg 3x daily is within safe range (250-500mg every 8hrs)
-4. Finally, I flag any contraindications: None found for this patient
-→ Result: PRESCRIPTION VALID (Confidence: 0.94)",
+                1. First, I'll use Qwen2-VL to parse the handwritten text → "Amoxicillin 500mg, 3x daily"
+                2. Next, I check the drug database for Amoxicillin: antibiotic, penicillin class
+                3. Then, I verify the dosage: 500mg 3x daily is within safe range (250-500mg every 8hrs)
+                4. Finally, I flag any contraindications: None found for this patient
+                → Result: PRESCRIPTION VALID (Confidence: 0.94)",
             "Few-Shot (FormGen-AI)": "Extract structured data from these documents:
 
 Example 1: 
@@ -356,13 +357,13 @@ Observation: Risk flagged. Patient record updated.
 # ─── Tab 4: Multimodal Vision Demo ───
 with demo_tab4:
     st.markdown("### 👁️ Multimodal Vision Demo")
-    st.markdown("
+    st.markdown("""
     <p style="color:#555; font-size:0.9rem;">
     Simulates how <strong>MediLens</strong> uses <strong>Qwen2-VL</strong> to process handwritten prescriptions 
     and <strong>STEM Helper</strong> uses <strong>PaddleOCR</strong> to understand mathematical content. 
     Combining vision + text improved MediLens accuracy from 78% → 94%.
     </p>
-    ", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
     vision_mode = st.selectbox("Select vision mode:", [
         "🏥 Prescription Parsing (MediLens)", 
         "📐 Math Accessibility (STEM Helper)",
@@ -370,7 +371,7 @@ with demo_tab4:
     
     if st.button("Run Vision Pipeline", type="primary", key="vision_btn"):
         if vision_mode == "🏥 Prescription Parsing (MediLens)":
-            st.markdown("
+            st.markdown("""
             <div class="card">
             <strong>📸 Input:</strong> Handwritten prescription image<br>
             <strong>🔍 Step 1 — PaddleOCR Layout Detection:</strong> Detected 3 text regions (header, medication list, dosage)<br>
@@ -382,9 +383,9 @@ with demo_tab4:
             <strong>✅ Output:</strong> Parsed successfully — 2 medications, 1 dosage instruction, 0 interaction warnings<br>
             <em>Accuracy: 94% (validated on 500+ handwritten prescriptions)</em>
             </div>
-            ", unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
         elif vision_mode == "📐 Math Accessibility (STEM Helper)":
-            st.markdown("
+            st.markdown("""
             <div class="card">
             <strong>📸 Input:</strong> LaTeX expression: ∫₀¹ x² dx<br>
             <strong>🔍 Step 1 — PaddleOCR Recognition:</strong> Detected integral symbol, subscript 0, superscript 1, x squared, dx<br>
@@ -394,9 +395,9 @@ with demo_tab4:
             <strong>✅ Output:</strong> Accessible description generated — 90% effectiveness (validated by 50+ visually impaired users)<br>
             <em>Efficiency improvement: 40% over traditional alt-text approaches</em>
             </div>
-            ", unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
         else:
-            st.markdown("
+            st.markdown("""
             <div class="card">
             <strong>📸 Input:</strong> Scanned invoice form (mixed handwritten + printed)<br>
             <strong>🔍 Step 1 — Dual OCR Pipeline:</strong><br>
@@ -410,7 +411,7 @@ with demo_tab4:
             <strong>✅ Output:</strong> Extraction complete — 95%+ accuracy across all fields<br>
             <em>Pipeline: PaddleOCR → Tesseract → FAISS → Qwen-VL → Structured JSON</em>
             </div>
-            ", unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
 st.markdown('---')
 
