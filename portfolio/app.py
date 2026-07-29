@@ -570,44 +570,44 @@ st.markdown('---')
 st.markdown('<div id="contact"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">📬 Get In Touch</h2>', unsafe_allow_html=True)
 
-st.markdown("""
+st.markdown("
 <div class="card" style="text-align:center; padding:2.5rem;">
 <h3 style="color:var(--primary-pink);">Let's Build Something Amazing</h3>
 <p style="color:var(--text-dark); font-size:1.1rem; max-width:600px; margin:1rem auto;">
 Interested in collaborating on AI projects, discussing research, or exploring opportunities? I'd love to hear from you!
 </p>
 </div>
-""", unsafe_allow_html=True)
+", unsafe_allow_html=True)
 
 c1, c2, c3, c4 = st.columns(4)
 with c1:
-    st.markdown("""
+    st.markdown("
     <div class="card" style="text-align:center;">
     <h4>📧 Email</h4>
     <p><a href="mailto:akansha.sharma2k@gmail.com">akansha.sharma2k@gmail.com</a></p>
     </div>
-    """, unsafe_allow_html=True)
+    ", unsafe_allow_html=True)
 with c2:
-    st.markdown("""
+    st.markdown("
     <div class="card" style="text-align:center;">
     <h4>🐙 GitHub</h4>
     <p><a href="https://github.com/aka-sa">@aka-sa</a></p>
     </div>
-    """, unsafe_allow_html=True)
+    ", unsafe_allow_html=True)
 with c3:
-    st.markdown("""
+    st.markdown("
     <div class="card" style="text-align:center;">
     <h4>💼 LinkedIn</h4>
     <p><a href="https://www.linkedin.com/in/akansha-sharma-285994251/?skipRedirect=true">Connect</a></p>
     </div>
-    """, unsafe_allow_html=True)
+    ", unsafe_allow_html=True)
 with c4:
-    st.markdown("""
+    st.markdown("
     <div class="card" style="text-align:center;">
     <h4>🤗 Hugging Face</h4>
     <p><a href="https://huggingface.co/akansha2k2">@aka-sa</a></p>
     </div>
-    """, unsafe_allow_html=True)
+    ", unsafe_allow_html=True)
 
 st.markdown('---')
 st.markdown('<p style="text-align:center; color:#888; font-size:0.9rem;">Built with ❤️ using Streamlit | Warm Sunset Theme | © 2026 Akansha Sharma</p>', unsafe_allow_html=True)
