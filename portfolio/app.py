@@ -46,6 +46,64 @@ st.markdown("""
     box-shadow: 0 8px 30px rgba(0,0,0,.08);
     backdrop-filter: blur(10px);
 }
+.metric-box{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+    transition:all .3s ease;
+    height:130px;
+}
+
+.metric-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 35px rgba(37,99,235,.15);
+    border-color:#2563EB;
+}
+
+.metric-icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.metric-value{
+    font-size:30px;
+    font-weight:700;
+    color:#2563EB;
+}
+
+.metric-title{
+    color:#6B7280;
+    font-size:15px;
+}
+
+.social-box{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:16px;
+    padding:18px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.social-box:hover{
+    background:#2563EB;
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(37,99,235,.2);
+}
+
+.social-box a{
+    text-decoration:none;
+    color:#111827;
+    font-weight:600;
+}
+
+.social-box:hover a{
+    color:white;
+}
 
 
 </style>
@@ -95,16 +153,80 @@ inference for production. Passionate about developing accessible, real-world AI 
 """, unsafe_allow_html=True)
 
 c1, c2, c3, c4 = st.columns(4)
-with c1: st.metric("Projects", "6+")
-with c2: st.metric("Publications", "2")
-with c3: st.metric("Research Experience", "6 months")
-with c4: st.metric("Accessibility Impact", "50+ users")
+
+with c1:
+    st.markdown("""
+    <div class="metric-box">
+        <div class="metric-icon">🚀</div>
+        <div class="metric-value">6+</div>
+        <div class="metric-title">Projects</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c2:
+    st.markdown("""
+    <div class="metric-box">
+        <div class="metric-icon">📄</div>
+        <div class="metric-value">2</div>
+        <div class="metric-title">Publications</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c3:
+    st.markdown("""
+    <div class="metric-box">
+        <div class="metric-icon">🔬</div>
+        <div class="metric-value">6 Months</div>
+        <div class="metric-title">Research Experience</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c4:
+    st.markdown("""
+    <div class="metric-box">
+        <div class="metric-icon">♿</div>
+        <div class="metric-value">50+</div>
+        <div class="metric-title">Accessibility Impact</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
-with col1: st.markdown('📧 **Email:** akansha.sharma2k@gmail.com')
-with col2: st.markdown('[🐙 GitHub](https://github.com/aka-sa)')
-with col3: st.markdown('[💼 LinkedIn](https://linkedin.com/in/akansha-sharma)')
-with col4: st.markdown('[🤗 Hugging Face](https://huggingface.co/aka-sa)')
+
+with col1:
+    st.markdown("""
+    <div class="social-box">
+        <a href="mailto:akansha.sharma2k@gmail.com">
+        📧<br><br>Email
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+    <div class="social-box">
+        <a href="https://github.com/aka-sa" target="_blank">
+        🐙<br><br>GitHub
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+    st.markdown("""
+    <div class="social-box">
+        <a href="https://linkedin.com/in/akansha-sharma" target="_blank">
+        💼<br><br>LinkedIn
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col4:
+    st.markdown("""
+    <div class="social-box">
+        <a href="https://huggingface.co/aka-sa" target="_blank">
+        🤗<br><br>Hugging Face
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.markdown('---')
 
