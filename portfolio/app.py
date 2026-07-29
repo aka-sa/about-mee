@@ -137,55 +137,6 @@ with demo_tab1:
         st.markdown(f'<div class="card">{resp}</div>', unsafe_allow_html=True)
 
 # ─── Tab 2: RAG Pipeline Demo (FormGen-AI) ───
-with demo_tab2:
-    st.markdown("### 🔍 RAG Pipeline — FormGen-AI Style")
-    st.markdown("""
-    <p style="color:#555; font-size:0.9rem;">
-    Simulates the retrieval pipeline from <strong>FormGen-AI</strong> — my multimodal document intelligence system 
-    (OCR + RAG) that achieves <strong>95%+ extraction accuracy</strong>. Built with PaddleOCR, Tesseract, FAISS, and Qwen-VL.
-    </p>
-    """, unsafe_allow_html=True)
-    rag_query = st.text_input("Query the knowledge base:", placeholder="e.g., How does chunking work? What is FAISS? OCR pipeline?", key="rag")
-    if rag_query:
-        r_lower = rag_query.lower()
-        if "chunk" in r_lower:
-            st.markdown("""
-            <div class="card">
-            <strong>📄 Retrieved Chunks (FormGen-AI Document Store):</strong><br>
-            1. "Semantic chunking splits documents at natural boundaries — headings, paragraphs, tables — preserving context integrity..." (score: 0.96)<br>
-            2. "Fixed-size chunking with overlap ensures no information is lost at boundaries. Optimal overlap: 10-15% of chunk size..." (score: 0.91)<br>
-            3. "Table-aware chunking preserves row/column structure for structured data extraction from forms..." (score: 0.88)<br><br>
-            <strong>🧠 Generated Answer:</strong> In FormGen-AI, I use semantic chunking with table-aware boundaries. Documents are split at natural boundaries (headings, paragraphs) using PaddleOCR layout detection, preserving table structures for structured extraction. This approach, combined with FAISS dense retrieval, achieved 95%+ extraction accuracy on real-world forms.
-            </div>
-            """, unsafe_allow_html=True)
-        elif "faiss" in r_lower or "vector" in r_lower or "retrieval" in r_lower:
-            st.markdown("""
-            <div class="card">
-            <strong>📄 Retrieved Chunks (FormGen-AI Vector Store):</strong><br>
-            1. "FAISS enables fast similarity search across millions of document embeddings with sub-millisecond latency..." (score: 0.95)<br>
-            2. "Hybrid search combines dense FAISS embeddings with sparse BM25 for best retrieval quality..." (score: 0.90)<br>
-            3. "Pinecone offers managed vector search with automatic scaling and metadata filtering..." (score: 0.84)<br><br>
-            <strong>🧠 Generated Answer:</strong> I use FAISS for dense vector search in FormGen-AI's RAG pipeline. The system combines FAISS dense retrieval with BM25 sparse search (hybrid approach) for optimal recall. Document embeddings are generated using Hugging Face Transformers, and the retrieval step achieves sub-second latency even with 10K+ documents.
-            </div>
-            """, unsafe_allow_html=True)
-        elif "ocr" in r_lower or "paddle" in r_lower or "tesseract" in r_lower:
-            st.markdown("""
-            <div class="card">
-            <strong>📄 Retrieved Chunks (FormGen-AI OCR Pipeline):</strong><br>
-            1. "PaddleOCR provides superior layout analysis and multilingual support for document understanding..." (score: 0.97)<br>
-            2. "Tesseract excels at clean text extraction with configurable page segmentation modes..." (score: 0.89)<br>
-            3. "Dual OCR pipeline: PaddleOCR for layout + Tesseract for text verification improves accuracy by 12%..." (score: 0.86)<br><br>
-            <strong>🧠 Generated Answer:</strong> FormGen-AI uses a dual OCR strategy: PaddleOCR for layout detection (tables, forms, checkboxes) and Tesseract for text verification. The combined approach handles diverse document types — handwritten forms, printed prescriptions, and mixed layouts — achieving 95%+ extraction accuracy.
-            </div>
-            """, unsafe_allow_html=True)
-        else:
-            st.markdown(f"""
-            <div class="card">
-            <strong>📄 Retrieving from FormGen-AI knowledge base...</strong><br><br>
-            <strong>🔍 Query:</strong> {rag_query}<br><br>
-            <strong>🧠 Generated Answer:</strong> FormGen-AI is my multimodal document intelligence system combining OCR (PaddleOCR + Tesseract) with RAG (FAISS + Qwen-VL). It achieves 95%+ extraction accuracy across diverse document types. Try asking about <em>chunking</em>, <em>FAISS</em>, or <em>OCR</em> for specific technical details!
-            </div>
-            """, unsafe_allow_html=True)
 
 # ─── Tab 3: Prompt Engineering Lab ───
 with demo_tab3:
@@ -442,7 +393,7 @@ st.markdown('<div id="pubs"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">📄 Publications</h2>', unsafe_allow_html=True)
 
 publications = [
-    {"title": "A Deterministic Hybrid Agent Architecture for State-Aware Prescription Risk Flagging", "venue": "NCCCI 2.0 / Zenodo (Open Access)", "year": "2025–2026", "link": "https://zenodo.org"},
+    {"title": "A Deterministic Hybrid Agent Architecture for State-Aware Prescription Risk Flagging", "venue": "NCCCI 2.0 / Zenodo (Open Access)", "year": "2025–2026", "link": "https://zenodo.org/records/20285585"},
     {"title": "Pre-Trained Language Model Augmented with Knowledge (PLMSAWK)", "venue": "JCPT — Scopus-indexed Journal", "year": "2023", "link": "#"},
 ]
 
@@ -490,14 +441,14 @@ with c3:
     st.markdown("""
     <div class="card" style="text-align:center;">
     <h4>💼 LinkedIn</h4>
-    <p><a href="https://linkedin.com/in/akansha-sharma">Connect</a></p>
+    <p><a href="https://www.linkedin.com/in/akansha-sharma-285994251/?skipRedirect=true">Connect</a></p>
     </div>
     """, unsafe_allow_html=True)
 with c4:
     st.markdown("""
     <div class="card" style="text-align:center;">
     <h4>🤗 Hugging Face</h4>
-    <p><a href="https://huggingface.co/aka-sa">@aka-sa</a></p>
+    <p><a href="https://huggingface.co/akansha2k2">@aka-sa</a></p>
     </div>
     """, unsafe_allow_html=True)
 
