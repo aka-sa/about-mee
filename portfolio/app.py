@@ -47,23 +47,7 @@ st.markdown("""
     backdrop-filter: blur(10px);
 }
 
-.nav-link{
-    display:block;
-    text-align:center;
-    padding:12px 10px;
-    border-radius:12px;
-    color:#111827 !important;
-    text-decoration:none !important;
-    font-weight:600;
-    transition:.25s;
-}
 
-.nav-link:hover{
-    background:#2563EB;
-    color:white !important;
-    transform:translateY(-2px);
-    box-shadow:0 6px 18px rgba(37,99,235,.25);
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -138,8 +122,8 @@ Based on my real projects: MediLens (94% prescription accuracy), FormGen-AI (95%
 </p>
 """, unsafe_allow_html=True)
 
-demo_tab1, demo_tab2, demo_tab3, demo_tab4 = st.tabs([
-    "💬 AI Agent Chat", "🔍 RAG Query Demo", "🧠 Prompt Engineering Lab", "👁️ Multimodal Vision Demo"])
+demo_tab1, demo_tab3, demo_tab4 = st.tabs([
+    "💬 AI Agent Chat", "🧠 Prompt Engineering Lab", "👁️ Multimodal Vision Demo"])
 
 # ─── Tab 1: AI Agent Chat ───
 with demo_tab1:
