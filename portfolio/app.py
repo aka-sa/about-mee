@@ -182,7 +182,7 @@ c1, c2, c3, c4 = st.columns(4)
 metrics = [
     ("🚀", "6+", "Projects"),
     ("📄", "2", "Publications"),
-    ("🔬", "6 Months", "Research"),
+    ("🔬", "1 Year", "Research"),
     ("♿", "50+", "Users Impacted"),
 ]
 
@@ -253,13 +253,6 @@ st.markdown('---')
 # ═══════════════════════════════════════════════════════════
 st.markdown('<div id="demo"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">🤖 Live AI Demo Lab</h2>', unsafe_allow_html=True)
-st.markdown("""
-<p style="color:#2D1B1B; font-size:1.1rem; margin-bottom:0.5rem;">
-Interactive demos of my AI systems — built with Python, PyTorch, LangChain, Qwen2-VL, PaddleOCR, and FastAPI.
-</p>
-<p style="color:#555; font-size:0.95rem; margin-bottom:1rem;">
-Based on my real projects: MediLens (94% prescription accuracy), FormGen-AI (95%+ extraction), STEM Helper (50+ users), and ACCESSNET.AI.
-</p>
 """, unsafe_allow_html=True)
 
 demo_tab1, demo_tab3, demo_tab4 = st.tabs([
