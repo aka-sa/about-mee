@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Scholaro Research Labs publications — journals, conferences, patents, technical reports, and white papers with search and filter.">
+  <link rel="canonical" href="https://scholaro.org/publications.html">
+  <meta property="og:title" content="Publications — Scholaro Research Labs">
+  <title>Publications — Scholaro Research Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Scholaro Research Labs — Home">
+        <span class="logo__icon" aria-hidden="true">SR</span>
+        <span>Scholaro Research Labs<span class="logo__tagline">Research • Publish • Innovate</span></span>
+      </a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="research-labs.html" class="nav__link">Research Labs</a></li>
+          <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="publications.html" class="nav__link">Publications</a></li>
+          <li class="nav__item"><a href="resources.html" class="nav__link">Resources</a></li>
+          <li class="nav__item"><a href="opportunities.html" class="nav__link">Opportunities</a></li>
+          <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+          <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <button class="theme-toggle" aria-label="Switch to dark mode">
+          <svg class="theme-toggle__icon theme-toggle__icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="menu-toggle__bar"></span><span class="menu-toggle__bar"></span><span class="menu-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+    <div class="mobile-nav__panel">
+      <a href="index.html" class="mobile-nav__link">Home</a>
+      <a href="about.html" class="mobile-nav__link">About</a>
+      <a href="research-labs.html" class="mobile-nav__link">Research Labs</a>
+      <a href="projects.html" class="mobile-nav__link">Projects</a>
+      <a href="publications.html" class="mobile-nav__link">Publications</a>
+      <a href="resources.html" class="mobile-nav__link">Resources</a>
+      <a href="opportunities.html" class="mobile-nav__link">Opportunities</a>
+      <a href="blog.html" class="mobile-nav__link">Blog</a>
+      <a href="contact.html" class="mobile-nav__link">Contact</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span>/</span><span aria-current="page">Publications</span>
+        </nav>
+        <h1 class="page-hero__title">Publications</h1>
+        <p class="page-hero__desc">Peer-reviewed research, patents, and technical reports advancing the state of the art across our core domains.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="pub-controls reveal" role="search" aria-label="Publication search and filters">
+          <div class="pub-search">
+            <svg class="pub-search__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <label for="pub-search" class="sr-only">Search publications</label>
+            <input type="search" id="pub-search" placeholder="Search by title, author, or keyword..." aria-label="Search publications">
+          </div>
+          <div class="pub-filter">
+            <label for="pub-filter" class="sr-only">Filter by type</label>
+            <select id="pub-filter" aria-label="Filter by publication type">
+              <option value="all">All Types</option>
+              <option value="journal">Journals</option>
+              <option value="conference">Conferences</option>
+              <option value="book">Book Chapters</option>
+              <option value="patent">Patents</option>
+              <option value="report">Technical Reports</option>
+              <option value="whitepaper">White Papers</option>
+            </select>
+          </div>
+          <div class="pub-sort">
+            <label for="pub-sort" class="sr-only">Sort publications</label>
+            <select id="pub-sort" aria-label="Sort publications">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="title">Title A–Z</option>
+            </select>
+          </div>
+        </div>
+
+        <p id="pub-count" class="pub-count reveal" aria-live="polite"></p>
+
+        <div class="pub-list">
+          <article class="pub-item reveal" data-type="journal" data-year="2025" data-title="Multimodal Foundation Models for Clinical Decision Support">
+            <span class="pub-item__type pub-item__type--journal">Journal</span>
+            <div>
+              <h2 class="pub-item__title">Multimodal Foundation Models for Clinical Decision Support</h2>
+              <p class="pub-item__authors">Rajesh Kumar, Sarah Chen, Michael O'Brien, Elena Vasquez</p>
+              <p class="pub-item__venue">Nature Machine Intelligence · Vol. 7, Issue 3 · 2025</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download aria-label="Download PDF">PDF</a>
+              <a href="https://doi.org/10.1038/s42256-025-001" class="pub-item__doi" rel="noopener noreferrer">DOI: 10.1038/s42256-025-001</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="conference" data-year="2025" data-title="Real-Time Accessibility AI for Universal Web Compliance">
+            <span class="pub-item__type pub-item__type--conference">Conference</span>
+            <div>
+              <h2 class="pub-item__title">Real-Time Accessibility AI for Universal Web Compliance</h2>
+              <p class="pub-item__authors">Maria Santos, James Okonkwo, Priya Sharma</p>
+              <p class="pub-item__venue">CHI 2025 · Yokohama, Japan · Best Paper Award</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>PDF</a>
+              <a href="https://doi.org/10.1145/chi2025.0042" class="pub-item__doi" rel="noopener noreferrer">DOI: 10.1145/chi2025.0042</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="patent" data-year="2025" data-title="Adaptive Threat Detection Using Graph Neural Networks">
+            <span class="pub-item__type pub-item__type--patent">Patent</span>
+            <div>
+              <h2 class="pub-item__title">Adaptive Threat Detection Using Graph Neural Networks</h2>
+              <p class="pub-item__authors">Scholaro Research Labs · Inventors: David Park, Lisa Wang</p>
+              <p class="pub-item__venue">US Patent Application US2025/0123456 · 2025</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline">View Patent</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="journal" data-year="2024" data-title="Federated Learning for Privacy-Preserving Medical Imaging">
+            <span class="pub-item__type pub-item__type--journal">Journal</span>
+            <div>
+              <h2 class="pub-item__title">Federated Learning for Privacy-Preserving Medical Imaging</h2>
+              <p class="pub-item__authors">Sarah Chen, Rajesh Kumar, Thomas Mueller</p>
+              <p class="pub-item__venue">The Lancet Digital Health · 2024</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>PDF</a>
+              <a href="https://doi.org/10.1016/S2589-7500(24)00123-4" class="pub-item__doi" rel="noopener noreferrer">DOI: 10.1016/S2589-7500(24)00123-4</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="conference" data-year="2024" data-title="Scaling Responsible AI: A Framework for Enterprise Deployment">
+            <span class="pub-item__type pub-item__type--conference">Conference</span>
+            <div>
+              <h2 class="pub-item__title">Scaling Responsible AI: A Framework for Enterprise Deployment</h2>
+              <p class="pub-item__authors">Akira Tanaka, Maria Santos, David Park</p>
+              <p class="pub-item__venue">NeurIPS 2024 · Vancouver, Canada</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>PDF</a>
+              <a href="https://doi.org/10.5555/neurips2024.7890" class="pub-item__doi" rel="noopener noreferrer">DOI: 10.5555/neurips2024.7890</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="book" data-year="2024" data-title="Interdisciplinary Approaches to AI Safety">
+            <span class="pub-item__type pub-item__type--book">Book Chapter</span>
+            <div>
+              <h2 class="pub-item__title">Interdisciplinary Approaches to AI Safety</h2>
+              <p class="pub-item__authors">James Okonkwo, Priya Sharma</p>
+              <p class="pub-item__venue">Handbook of Artificial Intelligence Ethics · Springer · 2024</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline">View Chapter</a>
+              <a href="https://doi.org/10.1007/978-3-031-12345-6_12" class="pub-item__doi" rel="noopener noreferrer">DOI: 10.1007/978-3-031-12345-6_12</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="report" data-year="2024" data-title="OpenMed Dataset: Technical Specification and Benchmarks">
+            <span class="pub-item__type pub-item__type--report">Technical Report</span>
+            <div>
+              <h2 class="pub-item__title">OpenMed Dataset: Technical Specification and Benchmarks</h2>
+              <p class="pub-item__authors">Scholaro Data Science Lab</p>
+              <p class="pub-item__venue">SRL-TR-2024-007 · Scholaro Research Labs · 2024</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>Download</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="whitepaper" data-year="2024" data-title="The Future of Accessibility-First AI Development">
+            <span class="pub-item__type pub-item__type--whitepaper">White Paper</span>
+            <div>
+              <h2 class="pub-item__title">The Future of Accessibility-First AI Development</h2>
+              <p class="pub-item__authors">Maria Santos, Scholaro Accessibility Innovation Lab</p>
+              <p class="pub-item__venue">Scholaro White Paper Series · WP-2024-003 · 2024</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>Download</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="journal" data-year="2023" data-title="Knowledge Graph Embeddings for Scientific Literature Discovery">
+            <span class="pub-item__type pub-item__type--journal">Journal</span>
+            <div>
+              <h2 class="pub-item__title">Knowledge Graph Embeddings for Scientific Literature Discovery</h2>
+              <p class="pub-item__authors">Lisa Wang, Thomas Mueller, Elena Vasquez</p>
+              <p class="pub-item__venue">Journal of Artificial Intelligence Research · 2023</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>PDF</a>
+              <a href="https://doi.org/10.1613/jair.1.14256" class="pub-item__doi" rel="noopener noreferrer">DOI: 10.1613/jair.1.14256</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="conference" data-year="2023" data-title="Edge AI for Real-Time Assistive Technologies">
+            <span class="pub-item__type pub-item__type--conference">Conference</span>
+            <div>
+              <h2 class="pub-item__title">Edge AI for Real-Time Assistive Technologies</h2>
+              <p class="pub-item__authors">James Okonkwo, David Park</p>
+              <p class="pub-item__venue">MobiSys 2023 · Helsinki, Finland</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>PDF</a>
+              <a href="https://doi.org/10.1145/mobisys2023.0156" class="pub-item__doi" rel="noopener noreferrer">DOI: 10.1145/mobisys2023.0156</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="patent" data-year="2023" data-title="System and Method for Automated Medical Image Segmentation">
+            <span class="pub-item__type pub-item__type--patent">Patent</span>
+            <div>
+              <h2 class="pub-item__title">System and Method for Automated Medical Image Segmentation</h2>
+              <p class="pub-item__authors">Scholaro Research Labs · Inventors: Rajesh Kumar, Sarah Chen</p>
+              <p class="pub-item__venue">US Patent 11,890,123 · Granted 2023</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline">View Patent</a>
+            </div>
+          </article>
+
+          <article class="pub-item reveal" data-type="whitepaper" data-year="2023" data-title="Cybersecurity in the Age of Generative AI">
+            <span class="pub-item__type pub-item__type--whitepaper">White Paper</span>
+            <div>
+              <h2 class="pub-item__title">Cybersecurity in the Age of Generative AI</h2>
+              <p class="pub-item__authors">David Park, Scholaro Cybersecurity Research Lab</p>
+              <p class="pub-item__venue">Scholaro White Paper Series · WP-2023-001 · 2023</p>
+            </div>
+            <div class="pub-item__actions">
+              <a href="#" class="btn btn--sm btn--outline" download>Download</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand"><a href="index.html" class="logo" style="color:#fff;"><span class="logo__icon" aria-hidden="true">SR</span><span>Scholaro Research Labs</span></a></div>
+        <div><h3 class="footer__title">Research</h3><ul class="footer__links"><li><a href="research-labs.html">Research Labs</a></li><li><a href="projects.html">Projects</a></li></ul></div>
+        <div><h3 class="footer__title">Engage</h3><ul class="footer__links"><li><a href="opportunities.html">Opportunities</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h3 class="footer__title">Legal</h3><ul class="footer__links"><li><a href="#">Privacy Policy</a></li></ul></div>
+      </div>
+      <div class="footer__bottom"><p>&copy; 2025 Scholaro Research Labs. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <script src="assets/js/script.js" defer></script>
+</body>
+</html>
