@@ -252,8 +252,7 @@ st.markdown('---')
 # 2. LIVE AI DEMO LAB
 # ═══════════════════════════════════════════════════════════
 st.markdown('<div id="demo"></div>', unsafe_allow_html=True)
-st.markdown('<h2 class="section-title">🤖 Live AI Demo Lab</h2>', unsafe_allow_html=True)
-""", unsafe_allow_html=True)
+st.markdown('<h2 class="section-title">🤖 Live AI Demo Lab</h2>', unsafe_allow_html=True)"""
 
 demo_tab1, demo_tab3, demo_tab4 = st.tabs([
     "💬 AI Agent Chat", "🧠 Prompt Engineering Lab", "👁️ Multimodal Vision Demo"])
