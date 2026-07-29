@@ -4,7 +4,7 @@ A professional portfolio showcasing my work in Generative AI, Machine Learning, 
 
 ## 🚀 Live Demo
 
-Visit: https://aka-sa-about-mee.streamlit.app
+Visit: https://about-mee-cndyaflcoviqj4eatqwaew.streamlit.app
 
 ## 📁 Project Structure
 
