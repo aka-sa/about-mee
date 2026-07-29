@@ -1,6 +1,5 @@
 """Akansha Sharma - GenAI Engineer Portfolio"""
 import streamlit as st
-import datetime
 
 st.set_page_config(page_title="Akansha Sharma | GenAI Engineer", page_icon="🤖", layout="wide")
 
@@ -59,24 +58,29 @@ st.markdown('<div id="hero"></div>', unsafe_allow_html=True)
 st.markdown("""
 <div class="hero-gradient">
 <h1 class="main-header">👋 Akansha Sharma</h1>
-<p class="sub-header">GenAI Engineer | AI Research Engineer</p>
+<p class="sub-header">GenAI Engineer | AI Research Engineer | LLM Specialist</p>
 <p style="font-size:1.15rem; color:#2D1B1B; line-height:1.8; max-width:800px; margin-top:1rem;">
-I build autonomous AI agents, MCP servers, and production RAG pipelines. Passionate about making AI accessible, 
-deploying multimodal systems at scale, and pushing the boundaries of what LLMs can do in the real world.
+GenAI Engineer with experience in developing multimodal AI systems using LLMs, Vision-Language Models, OCR, 
+and RAG. Skilled in building scalable end-to-end ML pipelines, fine-tuning and deploying AI models, and optimizing 
+inference for production. Passionate about developing accessible, real-world AI solutions.
+</p>
+<p style="font-size:0.95rem; color:#555; margin-top:0.5rem;">
+📍 Asansol, West Bengal, India &nbsp;|&nbsp; 📞 +91-8617471917 &nbsp;|&nbsp; ✉️ akansha.sharma2k@gmail.com
 </p>
 </div>
 """, unsafe_allow_html=True)
 
 c1, c2, c3, c4 = st.columns(4)
-with c1: st.metric("Projects", "15+")
-with c2: st.metric("Publications", "5")
-with c3: st.metric("AI Models Deployed", "10+")
-with c4: st.metric("Years Experience", "3+")
+with c1: st.metric("Projects", "6+")
+with c2: st.metric("Publications", "2")
+with c3: st.metric("Research Experience", "6 months")
+with c4: st.metric("Accessibility Impact", "50+ users")
 
-col1, col2, col3 = st.columns(3)
-with col1: st.markdown('📧 **Email:** akansha@example.com')
+col1, col2, col3, col4 = st.columns(4)
+with col1: st.markdown('📧 **Email:** akansha.sharma2k@gmail.com')
 with col2: st.markdown('[🐙 GitHub](https://github.com/aka-sa)')
-with col3: st.markdown('[💼 LinkedIn](https://linkedin.com/in/aka-sa)')
+with col3: st.markdown('[💼 LinkedIn](https://linkedin.com/in/akansha-sharma)')
+with col4: st.markdown('[🤗 Hugging Face](https://huggingface.co/aka-sa)')
 
 st.markdown('---')
 
@@ -95,13 +99,15 @@ with demo_tab1:
     if user_q:
         q_lower = user_q.lower()
         if "rag" in q_lower:
-            resp = "RAG (Retrieval-Augmented Generation) combines retrieval systems with LLMs. I've built production RAG pipelines using FAISS, hybrid search, and chunking strategies for medical document analysis."
+            resp = "RAG (Retrieval-Augmented Generation) combines retrieval systems with LLMs. I've built production RAG pipelines using FAISS, hybrid search, and chunking strategies — including the FormGen-AI document intelligence system achieving 95%+ extraction accuracy."
         elif "agent" in q_lower or "mcp" in q_lower:
-            resp = "I build autonomous agents using LangGraph state machines with tool use, reasoning loops, and safety validation. My MCP servers enable LLMs to securely access databases and APIs."
+            resp = "I build autonomous agents using LangGraph and CrewAI with tool use, reasoning loops, and safety validation. My Deterministic Hybrid Agent Architecture was published for state-aware prescription risk flagging."
         elif "skill" in q_lower or "tech" in q_lower:
-            resp = "My core stack: Python, LangChain/LangGraph, FastAPI, Transformers, FAISS, Docker, AWS, HuggingFace. I specialize in RAG, fine-tuning, and multimodal AI systems."
+            resp = "My core stack: Python, PyTorch, LangChain/LangGraph, FastAPI, Transformers, FAISS, Docker, AWS. I specialize in multimodal AI (Qwen2-VL, BLIP, Flamingo), RAG, fine-tuning (Unsloth/LoRA), and accessibility AI."
+        elif "accessibility" in q_lower:
+            resp = "I built STEM Helper — a Chrome extension using LangChain agents for blind learners, achieving 40% improvement in accessibility efficiency. Evaluated by 50+ visually impaired participants during my research internship at NIT Durgapur."
         else:
-            resp = f"Great question about '{user_q}'! I work on AI agents, RAG systems, MCP servers, and multimodal AI. Ask me about any of these topics!"
+            resp = f"Great question about '{user_q}'! I work on AI agents, RAG systems, multimodal AI, and accessibility. Ask me about any of these topics!"
         st.markdown(f'<div class="card"><strong>🤖 AI Agent:</strong> {resp}</div>', unsafe_allow_html=True)
 
 with demo_tab2:
@@ -114,7 +120,7 @@ with demo_tab2:
         1. "Chunking strategies divide documents into semantic units..." (score: 0.94)<br>
         2. "Hybrid search combines dense + sparse retrieval..." (score: 0.87)<br>
         3. "FAISS enables fast similarity search at scale..." (score: 0.82)<br><br>
-        <strong>🧠 Generated Answer:</strong> Based on retrieved context, chunking splits documents into semantic units for optimal retrieval. Hybrid search combines dense embeddings with sparse BM25 for best results.
+        <strong>🧠 Generated Answer:</strong> Based on retrieved context, chunking splits documents into semantic units for optimal retrieval. Hybrid search combines dense embeddings with sparse BM25 for best results. This mirrors the approach used in my FormGen-AI system (95%+ extraction accuracy).
         </div>
         """, unsafe_allow_html=True)
 
@@ -123,10 +129,10 @@ with demo_tab3:
     prompt_style = st.selectbox("Select prompt style:", ["Chain-of-Thought", "Few-Shot", "System Prompt", "ReAct"])
     if st.button("Generate Example", type="primary"):
         examples = {
-            "Chain-of-Thought": "Let me think step by step... First, I need to understand the problem. Then, break it into sub-problems...",
-            "Few-Shot": "Example 1: Input → Output. Example 2: Input → Output. Now solve: [your input]",
-            "System Prompt": "You are a helpful AI assistant specializing in medical document analysis. Always cite sources.",
-            "ReAct": "Thought: I need to search for X. Action: search(X). Observation: Found Y. Thought: Now I can answer."
+            "Chain-of-Thought": "Let me think step by step... First, I need to understand the prescription. Then, identify drug interactions using MediLens's knowledge graph...",
+            "Few-Shot": "Example 1: Handwritten 'Amoxicillin 500mg' → Parsed: Amoxicillin 500mg (Confidence: 0.96). Example 2: 'Metformin 850mg' → Parsed: Metformin 850mg (Confidence: 0.94). Now parse: [input]",
+            "System Prompt": "You are MediLens, a healthcare AI assistant specializing in prescription analysis. Always validate drug interactions and flag contraindications. Cite medical sources.",
+            "ReAct": "Thought: I need to identify the medication in this prescription. Action: ocr_scan(prescription_image). Observation: Found 'Lisinopril 10mg'. Thought: Now check for interactions. Action: check_interactions('Lisinopril', patient_meds). Observation: Warning — interaction with Potassium supplements."
         }
         st.code(examples[prompt_style], language="text")
 
@@ -139,11 +145,12 @@ st.markdown('<div id="projects"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">🚀 Featured Projects</h2>', unsafe_allow_html=True)
 
 projects = [
-    {"name": "🏥 MediLens - Medical RAG System", "desc": "Production RAG pipeline for medical prescription analysis with FAISS, hybrid search, chunking strategies, and safety validation layers. Handles 10K+ documents with sub-second retrieval.", "tags": ["RAG", "FAISS", "Healthcare", "Python"]},
-    {"name": "🤖 Autonomous Agent Framework", "desc": "Multi-agent system using LangGraph state machines for complex reasoning tasks. Features tool use, reasoning loops, memory management, and safety guardrails.", "tags": ["LangGraph", "Agents", "Multi-Agent", "Reasoning"]},
-    {"name": "🔌 MCP Server Toolkit", "desc": "Model Context Protocol servers enabling LLMs to securely access databases, APIs, and local files. Bridges the gap between models and production tools.", "tags": ["MCP", "FastAPI", "Tool Use", "Security"]},
-    {"name": "🎨 AccessiAI - Accessibility Auditor", "desc": "Multimodal AI system that audits web accessibility compliance (WCAG 2.1). Uses vision models to detect contrast issues, missing alt text, and navigation problems.", "tags": ["Accessibility", "Multimodal", "WCAG", "Vision"]},
-    {"name": "📊 FineTune Studio", "desc": "End-to-end platform for fine-tuning LLMs with LoRA/QLoRA. Includes dataset curation, training monitoring, evaluation metrics, and one-click deployment.", "tags": ["Fine-tuning", "LoRA", "HuggingFace", "W&B"]},
+    {"name": "🏥 MediLens — Multimodal Healthcare Reasoning System", "desc": "AI-powered prescription understanding pipeline achieving 94% accuracy in parsing handwritten prescriptions. Uses Computer Vision, Qwen2-VL, and NLP for multimodal medical reasoning. Published as a research paper at NCCCI 2.0.", "tags": ["Computer Vision", "Qwen2-VL", "NLP", "Healthcare AI"]},
+    {"name": "♿ ACCESSNET.AI — Enterprise Accessibility Intelligence Platform", "desc": "Enterprise-grade accessibility auditing platform for WCAG compliance. Built with FastAPI and Docker, providing automated accessibility scoring for web applications using multimodal AI analysis.", "tags": ["Accessibility", "FastAPI", "Docker", "WCAG"]},
+    {"name": "📄 FormGen-AI — Multimodal Document Intelligence System", "desc": "Document intelligence system combining OCR (Tesseract, PaddleOCR) with RAG for structured data extraction. Achieves 95%+ extraction accuracy across diverse document types. Built with FastAPI and Qwen-VL.", "tags": ["OCR", "RAG", "FastAPI", "Qwen-VL"]},
+    {"name": "🔊 Meeting Analyzer — Scalable Audio Intelligence System", "desc": "End-to-end audio intelligence pipeline for meeting transcription and analysis. Combines Speech-to-Text models with NLP for summarization, action item extraction, and sentiment analysis.", "tags": ["Speech-to-Text", "NLP", "Audio AI"]},
+    {"name": "📐 STEM Helper — Accessible Math Chrome Extension", "desc": "Chrome extension using LangChain agents to make mathematical content accessible for blind learners. Uses hierarchical semantic descriptions for LaTeX/MathML, evaluated by 50+ visually impaired participants with 40% efficiency improvement.", "tags": ["LangChain", "Accessibility", "Chrome Extension", "Flask"]},
+    {"name": "🧮 LaTeX Mathematical Reasoning Engine", "desc": "Fine-tuned mathematical reasoning model using Transformers and Unsloth for LaTeX expression understanding and step-by-step problem solving. Optimized inference for mathematical computation.", "tags": ["Transformers", "Unsloth", "Fine-tuning", "Math AI"]},
 ]
 
 for proj in projects:
@@ -162,27 +169,25 @@ st.markdown('---')
 # ═══════════════════════════════════════════════════════════
 st.markdown('<div id="blog"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">📝 Research Blog</h2>', unsafe_allow_html=True)
-st.markdown('<p style="color:#2D1B1B; font-size:1.1rem; margin-bottom:1.5rem;">Deep dives into AI agents, MCP, RAG, fine-tuning, accessibility, and multimodal AI.</p>', unsafe_allow_html=True)
+st.markdown('<p style="color:#2D1B1B; font-size:1.1rem; margin-bottom:1.5rem;">Deep dives into AI agents, MCP, RAG, fine-tuning, accessibility, and multimodal AI — informed by my research and production work.</p>', unsafe_allow_html=True)
 
-# Blog filter
 filter_col1, filter_col2 = st.columns([1, 3])
 with filter_col1:
     blog_filter = st.selectbox("Filter by topic:", ["All", "Agents", "MCP", "RAG", "Fine-tuning", "Accessibility", "Multimodal AI"])
 
 blog_articles = [
-    {"title": "Building Autonomous AI Agents with LangGraph", "excerpt": "How I designed a multi-agent system using LangGraph state machines for medical prescription analysis -- featuring reasoning loops, tool use, and safety validation layers that catch hallucinations before they reach users.", "category": "Agents", "cat_class": "cat-agents", "date": "Jun 2026", "tags": ["LangGraph", "Multi-Agent", "Healthcare"]},
-    {"title": "Designing MCP Servers for AI Tool Integration", "excerpt": "Implementing Model Context Protocol servers that enable LLMs to securely access databases, APIs, and local files -- bridging the gap between models and production tools with proper authentication and rate limiting.", "category": "MCP", "cat_class": "cat-mcp", "date": "May 2026", "tags": ["MCP", "FastAPI", "Tool Use"]},
-    {"title": "Production RAG Pipelines: From Theory to Deployment", "excerpt": "Building retrieval-augmented generation systems with FAISS, chunking strategies, hybrid search, and evaluation metrics -- real MediLens examples included showing 94% retrieval accuracy.", "category": "RAG", "cat_class": "cat-rag", "date": "Apr 2026", "tags": ["RAG", "FAISS", "Evaluation"]},
-    {"title": "Fine-tuning LLMs with LoRA: A Practical Guide", "excerpt": "Step-by-step guide to fine-tuning large language models using LoRA and QLoRA. Covers dataset curation, hyperparameter selection, training on consumer GPUs, and evaluation with W&B.", "category": "Fine-tuning", "cat_class": "cat-finetune", "date": "Mar 2026", "tags": ["LoRA", "Fine-tuning", "HuggingFace"]},
-    {"title": "AI for Web Accessibility: Beyond Alt Text", "excerpt": "How multimodal AI can audit WCAG 2.1 compliance -- detecting contrast ratios, keyboard navigation issues, screen reader compatibility, and cognitive load problems that traditional tools miss.", "category": "Accessibility", "cat_class": "cat-accessibility", "date": "Feb 2026", "tags": ["WCAG", "Multimodal", "Vision"]},
-    {"title": "Multimodal AI: Combining Vision, Text, and Audio", "excerpt": "Architecting systems that process images, text, and audio simultaneously. Real examples from medical imaging analysis where combining X-rays with clinical notes improved diagnosis accuracy by 23%.", "category": "Multimodal AI", "cat_class": "cat-multimodal", "date": "Jan 2026", "tags": ["Vision", "Audio", "Fusion"]},
-    {"title": "Agent Memory Systems: Short-term vs Long-term", "excerpt": "Designing memory architectures for AI agents -- from simple conversation buffers to vector-store-backed long-term memory. Includes benchmarks showing 40% improvement in multi-turn task completion.", "category": "Agents", "cat_class": "cat-agents", "date": "Dec 2025", "tags": ["Memory", "Agents", "Vector Store"]},
-    {"title": "MCP Security: Auth, Rate Limiting, and Sandboxing", "excerpt": "Production security patterns for MCP servers -- OAuth2 flows, token rotation, request sandboxing, and audit logging. Lessons learned from deploying MCP in healthcare environments.", "category": "MCP", "cat_class": "cat-mcp", "date": "Nov 2025", "tags": ["Security", "OAuth2", "MCP"]},
-    {"title": "RAG Evaluation: Metrics That Actually Matter", "excerpt": "Beyond BLEU and ROUGE -- implementing faithfulness, answer relevancy, context precision, and context recall metrics. How I built an evaluation pipeline that caught 3x more retrieval failures.", "category": "RAG", "cat_class": "cat-rag", "date": "Oct 2025", "tags": ["Evaluation", "RAG", "Metrics"]},
-    {"title": "Accessible AI Interfaces: Designing for Everyone", "excerpt": "Building AI-powered interfaces that work for users with visual, motor, cognitive, and auditory disabilities. Covers ARIA patterns, focus management, reduced motion, and screen reader optimization.", "category": "Accessibility", "cat_class": "cat-accessibility", "date": "Sep 2025", "tags": ["ARIA", "UX", "Inclusive Design"]},
+    {"title": "Building Autonomous AI Agents with LangGraph", "excerpt": "How I designed MediLens's multi-agent architecture using LangGraph state machines — featuring reasoning loops, tool use, and safety validation layers that catch hallucinations before they reach users. Lessons from building a healthcare AI that parses prescriptions with 94% accuracy.", "category": "Agents", "cat_class": "cat-agents", "date": "Jun 2026", "tags": ["LangGraph", "Multi-Agent", "Healthcare"]},
+    {"title": "Designing MCP Servers for AI Tool Integration", "excerpt": "Implementing Model Context Protocol servers for ACCESSNET.AI that enable LLMs to securely access accessibility databases and WCAG audit APIs — with proper authentication, rate limiting, and audit logging for enterprise compliance.", "category": "MCP", "cat_class": "cat-mcp", "date": "May 2026", "tags": ["MCP", "FastAPI", "Tool Use"]},
+    {"title": "Production RAG Pipelines: Lessons from FormGen-AI", "excerpt": "Building retrieval-augmented generation systems with FAISS, chunking strategies, and hybrid search — real examples from FormGen-AI achieving 95%+ extraction accuracy. Covers OCR integration, semantic chunking, and evaluation metrics.", "category": "RAG", "cat_class": "cat-rag", "date": "Apr 2026", "tags": ["RAG", "FAISS", "FormGen-AI"]},
+    {"title": "Fine-tuning LLMs with Unsloth: A Practical Guide", "excerpt": "Step-by-step guide to fine-tuning large language models using Unsloth and LoRA — how I built the LaTeX Mathematical Reasoning Engine. Covers dataset curation from mathematical corpora, hyperparameter selection, and deployment optimization.", "category": "Fine-tuning", "cat_class": "cat-finetune", "date": "Mar 2026", "tags": ["Unsloth", "LoRA", "Transformers"]},
+    {"title": "AI for Web Accessibility: Building STEM Helper", "excerpt": "How I built a Chrome extension using LangChain agents and PaddleOCR to make mathematical content accessible for blind learners — achieving 40% efficiency improvement, validated by 50+ visually impaired participants at NIT Durgapur.", "category": "Accessibility", "cat_class": "cat-accessibility", "date": "Feb 2026", "tags": ["WCAG", "LangChain", "PaddleOCR"]},
+    {"title": "Multimodal AI with Qwen2-VL: The MediLens Story", "excerpt": "Architecting a system that processes handwritten prescriptions, medical images, and clinical notes simultaneously using Qwen2-VL. How combining vision and text modalities improved prescription parsing accuracy from 78% to 94%.", "category": "Multimodal AI", "cat_class": "cat-multimodal", "date": "Jan 2026", "tags": ["Qwen2-VL", "Vision", "Healthcare"]},
+    {"title": "Agent Memory Systems: From Buffers to Vector Stores", "excerpt": "Designing memory architectures for AI agents — from simple conversation buffers to FAISS-backed long-term memory. Includes benchmarks from my MediLens agent showing 40% improvement in multi-turn medical query completion.", "category": "Agents", "cat_class": "cat-agents", "date": "Dec 2025", "tags": ["Memory", "FAISS", "Agents"]},
+    {"title": "MCP Security: Enterprise Patterns for Healthcare AI", "excerpt": "Production security patterns for MCP servers in healthcare — OAuth2 flows, HIPAA-compliant token rotation, request sandboxing, and audit logging. Lessons learned building ACCESSNET.AI's enterprise accessibility platform.", "category": "MCP", "cat_class": "cat-mcp", "date": "Nov 2025", "tags": ["Security", "OAuth2", "Healthcare"]},
+    {"title": "RAG Evaluation: Metrics That Actually Matter", "excerpt": "Beyond BLEU and ROUGE — implementing faithfulness, answer relevancy, context precision, and context recall metrics. How I built FormGen-AI's evaluation pipeline that caught 3x more extraction failures than standard benchmarks.", "category": "RAG", "cat_class": "cat-rag", "date": "Oct 2025", "tags": ["Evaluation", "Metrics", "FormGen-AI"]},
+    {"title": "Accessible AI Interfaces: Designing for Blind Learners", "excerpt": "Building AI-powered interfaces for visually impaired users — hierarchical semantic descriptions for LaTeX/MathML, ARIA patterns, screen reader optimization, and cognitive load reduction. Validated with 50+ participants in a controlled study.", "category": "Accessibility", "cat_class": "cat-accessibility", "date": "Sep 2025", "tags": ["ARIA", "Inclusive Design", "NIT Durgapur"]},
 ]
 
-# Apply filter
 if blog_filter != "All":
     blog_articles = [a for a in blog_articles if a["category"] == blog_filter]
 
@@ -207,19 +212,57 @@ st.markdown('---')
 st.markdown('<div id="research"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">📅 Research & Experience</h2>', unsafe_allow_html=True)
 
-experience = [
-    {"role": "GenAI Engineer", "company": "Scholaro Research Labs", "period": "2025 - Present", "desc": "Building autonomous AI agents, MCP servers, and production RAG pipelines. Leading accessibility initiatives for AI systems."},
-    {"role": "AI Research Engineer", "company": "Independent Research", "period": "2024 - 2025", "desc": "Published research on multimodal AI, fine-tuning techniques, and medical document analysis. Developed open-source tools for the AI community."},
-    {"role": "Machine Learning Engineer", "company": "Freelance", "period": "2023 - 2024", "desc": "Built custom ML solutions for healthcare and education sectors. Specialized in NLP, computer vision, and deployment optimization."},
-]
+st.markdown('<h3 style="color:var(--text-dark); margin-bottom:1rem;">💼 Professional Experience</h3>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="timeline-item">'
+    '<h3 style="color:var(--primary-pink);margin:0;">AI & STEM Accessibility Research Intern</h3>'
+    '<p style="color:var(--text-dark);margin:0.2rem 0;"><strong>NIT Durgapur</strong> | Feb 2024 – Jul 2024</p>'
+    '<ul style="color:#555;line-height:1.8;margin-top:0.5rem;">'
+    '<li>Built multimodal AI pipeline using LangChain, Hugging Face, and PaddleOCR for mathematical accessibility</li>'
+    '<li>Developed Flask-based Chrome extension (STEM Helper) improving accessibility efficiency by 40%</li>'
+    '<li>Designed hierarchical semantic descriptions for LaTeX/MathML achieving 90% effectiveness</li>'
+    '<li>Chrome extension positively evaluated by 50+ visually impaired participants</li>'
+    '<li>Mentored 2–3 junior researchers, increasing lab productivity by 25%</li>'
+    '</ul></div>', unsafe_allow_html=True)
 
-for exp in experience:
-    st.markdown(
-        '<div class="timeline-item">'
-        '<h3 style="color:var(--primary-pink);margin:0;">' + exp["role"] + '</h3>'
-        '<p style="color:var(--text-dark);margin:0.2rem 0;"><strong>' + exp["company"] + '</strong> | ' + exp["period"] + '</p>'
-        '<p style="color:#555;line-height:1.6;">' + exp["desc"] + '</p>'
-        '</div>', unsafe_allow_html=True)
+st.markdown('<h3 style="color:var(--text-dark); margin-bottom:1rem; margin-top:2rem;">🎓 Education</h3>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="timeline-item">'
+    '<h3 style="color:var(--primary-pink);margin:0;">B.Tech in Information Technology</h3>'
+    '<p style="color:var(--text-dark);margin:0.2rem 0;"><strong>Asansol Engineering College</strong> | Expected May 2026</p>'
+    '<p style="color:#555;">Relevant Coursework: Machine Learning, Deep Learning, Computer Vision, NLP, Data Structures, Algorithms, Operating Systems</p>'
+    '</div>'
+    '<div class="timeline-item">'
+    '<h3 style="color:var(--primary-pink);margin:0;">Higher Secondary (12th)</h3>'
+    '<p style="color:var(--text-dark);margin:0.2rem 0;"><strong>Narayana Junior College</strong> | May 2022</p>'
+    '</div>', unsafe_allow_html=True)
+
+# Research Interests
+st.markdown('<h3 style="color:var(--text-dark); margin-bottom:1rem; margin-top:2rem;">🔬 Research Interests</h3>', unsafe_allow_html=True)
+interests = ["Multimodal LLMs", "Accessibility AI", "Agentic Systems", "Vision-Language Models", "Healthcare AI", "Human-Centered AI", "RAG", "Inclusive Education", "Reasoning in LLMs", "Trustworthy AI"]
+interests_html = " ".join('<span class="skill-tag">' + i + '</span>' for i in interests)
+st.markdown(f'<div style="margin-bottom:1rem;">{interests_html}</div>', unsafe_allow_html=True)
+
+# Technical Skills
+st.markdown('<h3 style="color:var(--text-dark); margin-bottom:1rem; margin-top:2rem;">🛠️ Technical Skills</h3>', unsafe_allow_html=True)
+skills_categories = {
+    "AI/ML": ["Python", "PyTorch", "TensorFlow", "Hugging Face", "Transformers", "LangChain", "CrewAI", "LangGraph", "Unsloth", "LLMs", "NLP", "OCR (Tesseract, PaddleOCR)", "VLMs (Qwen2-VL, BLIP, Flamingo)", "RAG", "FAISS", "Pinecone", "Prompt Engineering"],
+    "Development": ["FastAPI", "Django", "Streamlit", "React", "Docker", "Git", "Linux", "AWS", "Nginx", "CI/CD", "SQL"],
+    "Research": ["AI Accessibility", "Model Evaluation", "Dataset Curation", "Experimental Design"],
+}
+for cat, skills in skills_categories.items():
+    tags_html = " ".join('<span class="skill-tag">' + s + '</span>' for s in skills)
+    st.markdown(f'<div class="card"><strong style="color:var(--primary-pink);">{cat}:</strong><br>{tags_html}</div>', unsafe_allow_html=True)
+
+# Open Source & Leadership
+st.markdown('<h3 style="color:var(--text-dark); margin-bottom:1rem; margin-top:2rem;">🌟 Open Source & Leadership</h3>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="card">'
+    '<ul style="color:#555;line-height:2;">'
+    '<li>Published accessibility models and datasets on <a href="https://huggingface.co/aka-sa">Hugging Face</a></li>'
+    '<li>Maintainer of MediLens toolkit and STEM Helper Chrome extension</li>'
+    '<li>Speaker/organizer at NCCCI 2026</li>'
+    '</ul></div>', unsafe_allow_html=True)
 
 st.markdown('---')
 
@@ -230,11 +273,8 @@ st.markdown('<div id="pubs"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">📄 Publications</h2>', unsafe_allow_html=True)
 
 publications = [
-    {"title": "Task-Conditional Faithfulness Auditing of Multimodal LLMs for Grid Diagnosis", "venue": "arXiv Preprint", "year": "2026", "link": "https://arxiv.org/abs/2607.24539"},
-    {"title": "Production RAG: Hybrid Search Strategies for Medical Document Retrieval", "venue": "AI Healthcare Workshop", "year": "2025", "link": "#"},
-    {"title": "Accessible AI: Designing Inclusive Interfaces for Language Models", "venue": "ACM CHI Workshop", "year": "2025", "link": "#"},
-    {"title": "MCP Security Patterns for Enterprise AI Tool Integration", "venue": "IEEE Security & Privacy", "year": "2025", "link": "#"},
-    {"title": "Fine-tuning Small Language Models for Domain-Specific Tasks", "venue": "EMNLP Workshop", "year": "2024", "link": "#"},
+    {"title": "A Deterministic Hybrid Agent Architecture for State-Aware Prescription Risk Flagging", "venue": "NCCCI 2.0 / Zenodo (Open Access)", "year": "2025–2026", "link": "https://zenodo.org"},
+    {"title": "Pre-Trained Language Model Augmented with Knowledge (PLMSAWK)", "venue": "JCPT — Scopus-indexed Journal", "year": "2023", "link": "#"},
 ]
 
 for pub in publications:
@@ -262,12 +302,12 @@ Interested in collaborating on AI projects, discussing research, or exploring op
 </div>
 """, unsafe_allow_html=True)
 
-c1, c2, c3 = st.columns(3)
+c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.markdown("""
     <div class="card" style="text-align:center;">
     <h4>📧 Email</h4>
-    <p>akansha@example.com</p>
+    <p><a href="mailto:akansha.sharma2k@gmail.com">akansha.sharma2k@gmail.com</a></p>
     </div>
     """, unsafe_allow_html=True)
 with c2:
@@ -281,7 +321,14 @@ with c3:
     st.markdown("""
     <div class="card" style="text-align:center;">
     <h4>💼 LinkedIn</h4>
-    <p><a href="https://linkedin.com/in/aka-sa">Connect</a></p>
+    <p><a href="https://linkedin.com/in/akansha-sharma">Connect</a></p>
+    </div>
+    """, unsafe_allow_html=True)
+with c4:
+    st.markdown("""
+    <div class="card" style="text-align:center;">
+    <h4>🤗 Hugging Face</h4>
+    <p><a href="https://huggingface.co/aka-sa">@aka-sa</a></p>
     </div>
     """, unsafe_allow_html=True)
 
