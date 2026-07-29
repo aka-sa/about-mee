@@ -309,12 +309,12 @@ with demo_tab3:
         "System Prompt (STEM Helper)", "ReAct (MediLens Agent)"])
     if st.button("Generate Example", type="primary"):
         examples = {
-            "Chain-of-Thought (MediLens)": """Let me think step by step about this prescription...
+            "Chain-of-Thought (MediLens)": "Let me think step by step about this prescription...
 1. First, I'll use Qwen2-VL to parse the handwritten text → "Amoxicillin 500mg, 3x daily"
 2. Next, I check the drug database for Amoxicillin: antibiotic, penicillin class
 3. Then, I verify the dosage: 500mg 3x daily is within safe range (250-500mg every 8hrs)
 4. Finally, I flag any contraindications: None found for this patient
-→ Result: PRESCRIPTION VALID (Confidence: 0.94)""",
+→ Result: PRESCRIPTION VALID (Confidence: 0.94)",
             "Few-Shot (FormGen-AI)": """Extract structured data from these documents:
 
 Example 1: 
