@@ -254,7 +254,7 @@ st.markdown('---')
 st.markdown('<div id="demo"></div>', unsafe_allow_html=True)
 st.markdown('<h2 class="section-title">🤖 Live AI Demo Lab</h2>', unsafe_allow_html=True)
 
-demo_tab1, demo_tab3, demo_tab4 = st.tabs([
+demo_tab1, demo_tab4 = st.tabs([
     "💬 AI Agent Chat", "👁️ Multimodal Vision Demo"])
 
 # ─── Tab 1: AI Agent Chat ───
