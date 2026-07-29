@@ -309,50 +309,121 @@ with demo_tab3:
         "System Prompt (STEM Helper)", "ReAct (MediLens Agent)"])
     if st.button("Generate Example", type="primary"):
         examples = {
-            "Chain-of-Thought (MediLens)": "Let me think step by step about this prescription...
-                1. First, I'll use Qwen2-VL to parse the handwritten text → "Amoxicillin 500mg, 3x daily"
-                2. Next, I check the drug database for Amoxicillin: antibiotic, penicillin class
-                3. Then, I verify the dosage: 500mg 3x daily is within safe range (250-500mg every 8hrs)
-                4. Finally, I flag any contraindications: None found for this patient
-                → Result: PRESCRIPTION VALID (Confidence: 0.94)",
-            "Few-Shot (FormGen-AI)": "Extract structured data from these documents:
-
-Example 1: 
-  Input: "Invoice #1234, Date: 2024-03-15, Amount: $2,450.00"
-  Output: {"invoice_num": "1234", "date": "2024-03-15", "amount": 2450.00}
-
-Example 2:
-  Input: "Patient: John Doe, DOB: 1985-06-20, Rx: Metformin 500mg"
-  Output: {"patient": "John Doe", "dob": "1985-06-20", "medication": "Metformin 500mg"}
-
-Now extract: [your document input]",
-            "System Prompt (STEM Helper)": "You are STEM Helper, an accessibility assistant for blind learners. 
-Your role is to convert mathematical expressions into hierarchical semantic descriptions.
-
-Rules:
-- Always describe the visual structure first, then the mathematical meaning
-- Use spatial language (left, right, above, below, inside)
-- Break complex expressions into sub-components
-- For fractions: describe numerator, denominator, and the fraction bar
-- For integrals: describe the bounds, integrand, and variable
-- For matrices: describe rows and columns spatially
-
-Example: "x² + 3x - 5" → "A quadratic expression: x squared, plus 3 times x, minus 5. The dominant term is x raised to the power of 2." ,
-            "ReAct (MediLens Agent)": "Thought: I need to identify the medication in this handwritten prescription.
-Action: ocr_scan(prescription_image)
-Observation: Found "Lisinopril 10mg" (confidence: 0.92)
-
-Thought: Lisinopril is an ACE inhibitor. I should check for drug interactions.
-Action: check_interactions("Lisinopril", patient_medications=["Potassium_Supplement"])
-Observation: ⚠️ WARNING — Lisinopril + Potassium supplements may cause hyperkalemia
-
-Thought: I need to flag this risk to the pharmacist.
-Action: flag_risk("hyperkalemia_risk", severity="moderate", evidence="ACE inhibitor + K+ supplement")
-Observation: Risk flagged. Patient record updated.
-
-→ Final Answer: Prescription contains Lisinopril 10mg. ⚠️ INTERACTION WARNING: Potassium supplementation with ACE inhibitors may cause hyperkalemia. Recommend monitoring serum potassium levels."
+            "Chain-of-Thought (MediLens)": """Let me think step by step about this prescription...
+        
+        1. First, I'll use Qwen2-VL to parse the handwritten text
+           → "Amoxicillin 500mg, 3x daily"
+        
+        2. Next, I check the drug database:
+           - Drug: Amoxicillin
+           - Class: Penicillin Antibiotic
+        
+        3. Verify dosage:
+           500mg three times daily is within the recommended range.
+        
+        4. Check contraindications:
+           None detected.
+        
+        ✅ Result:
+        PRESCRIPTION VALID
+        Confidence: 0.94
+        """,
+        
+            "Few-Shot (FormGen-AI)": """Extract structured data from these documents.
+        
+        Example 1
+        Input:
+        Invoice #1234
+        Date: 2024-03-15
+        Amount: $2,450.00
+        
+        Output:
+        {
+          "invoice_num": "1234",
+          "date": "2024-03-15",
+          "amount": 2450.00
         }
-        st.code(examples[prompt_style], language="text")
+        
+        Example 2
+        
+        Input:
+        Patient: John Doe
+        DOB: 1985-06-20
+        Rx: Metformin 500mg
+        
+        Output:
+        {
+          "patient": "John Doe",
+          "dob": "1985-06-20",
+          "medication": "Metformin 500mg"
+        }
+        
+        Now extract:
+        [your document]
+        """,
+        
+            "System Prompt (STEM Helper)": """You are STEM Helper, an accessibility assistant for blind learners.
+        
+        Your role is to convert mathematical expressions into hierarchical semantic descriptions.
+        
+        Rules:
+        - Describe visual structure first.
+        - Use spatial language.
+        - Break expressions into components.
+        - Explain fractions.
+        - Explain integrals.
+        - Explain matrices.
+        
+        Example:
+        
+        Input:
+        x² + 3x − 5
+        
+        Output:
+        A quadratic expression:
+        x squared,
+        plus three times x,
+        minus five.
+        """,
+        
+            "ReAct (MediLens Agent)": """Thought:
+        I need to identify the medication.
+        
+        Action:
+        ocr_scan(prescription_image)
+        
+        Observation:
+        Found "Lisinopril 10mg"
+        Confidence: 0.92
+        
+        Thought:
+        Check drug interactions.
+        
+        Action:
+        check_interactions(
+            "Lisinopril",
+            patient_medications=["Potassium_Supplement"]
+        )
+        
+        Observation:
+        ⚠ WARNING:
+        Lisinopril + Potassium supplements may cause hyperkalemia.
+        
+        Thought:
+        Flag the risk.
+        
+        Action:
+        flag_risk(
+            "hyperkalemia_risk",
+            severity="moderate"
+        )
+        
+        Final Answer:
+        Prescription contains Lisinopril 10mg.
+        Interaction warning detected.
+        Recommend monitoring serum potassium.
+        """
+        }
 
 # ─── Tab 4: Multimodal Vision Demo ───
 with demo_tab4:
