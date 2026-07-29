@@ -37,6 +37,33 @@ st.markdown("""
 .nav-link:hover { background: var(--accent-coral); color: white; }
 .hero-gradient { background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-peach) 100%); border-radius: 20px; padding: 3rem; margin-bottom: 2rem; }
 .pub-card { background: var(--card-warm); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; border-left: 4px solid var(--accent-coral); }
+.nav-container{
+    background: rgba(255,255,255,0.92);
+    border: 1px solid #E5E7EB;
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin: 15px auto 30px auto;
+    box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    backdrop-filter: blur(10px);
+}
+
+.nav-link{
+    display:block;
+    text-align:center;
+    padding:12px 10px;
+    border-radius:12px;
+    color:#111827 !important;
+    text-decoration:none !important;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-link:hover{
+    background:#2563EB;
+    color:white !important;
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(37,99,235,.25);
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -44,12 +71,25 @@ st.markdown("""
 # NAVIGATION
 # ═══════════════════════════════════════════════════════════
 nav_cols = st.columns([1, 1, 1, 1, 1, 1, 1])
-nav_items = [("🏠 Hero", "hero"), ("🤖 Demo Lab", "demo"), ("🚀 Projects", "projects"),
-             ("📝 Blog", "blog"), ("📅 Research", "research"), ("📄 Publications", "pubs"), ("📬 Contact", "contact")]
+
+nav_items = [
+    ("🏠 Hero", "hero"),
+    ("🤖 Demo Lab", "demo"),
+    ("🚀 Projects", "projects"),
+    ("📝 Blog", "blog"),
+    ("📅 Research", "research"),
+    ("📄 Publications", "pubs"),
+    ("📬 Contact", "contact")
+]
+
 for col, (label, anchor) in zip(nav_cols, nav_items):
     with col:
-        st.markdown(f'<a href="#{anchor}" class="nav-link" style="text-align:center;display:block;">{label}</a>', unsafe_allow_html=True)
-st.markdown('---')
+        st.markdown(
+            f'<a href="#{anchor}" class="nav-link">{label}</a>',
+            unsafe_allow_html=True,
+        )
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 # ═══════════════════════════════════════════════════════════
 # 1. HERO
