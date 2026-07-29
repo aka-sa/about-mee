@@ -227,7 +227,7 @@ with col3:
     <div class="card contact-card">
         <h4>💼 LinkedIn</h4>
         <p>
-            <a href="https://www.linkedin.com/in/akansha-sharma-285994251/?skipRedirect=true" target="_blank">
+            <a href="https://www.linkedin.com/in/akansha-sharma-285994251" target="_blank">
                 Connect
             </a>
         </p>
@@ -239,7 +239,7 @@ with col4:
     <div class="card contact-card">
         <h4>🤗 Hugging Face</h4>
         <p>
-            <a href="https://huggingface.co/aka-sa" target="_blank">
+            <a href="https://huggingface.co/akansha2k2" target="_blank">
                 Explore Models
             </a>
         </p>
@@ -607,7 +607,7 @@ st.markdown('<h3 style="color:var(--text-dark); margin-bottom:1rem; margin-top:2
 st.markdown(
     '<div class="card">'
     '<ul style="color:#555;line-height:2;">'
-    '<li>Published accessibility models and datasets on <a href="https://huggingface.co/aka-sa">Hugging Face</a></li>'
+    '<li>Published accessibility models and datasets on <a href="https://huggingface.co/akansha2k2">Hugging Face</a></li>'
     '<li>Maintainer of MediLens toolkit and STEM Helper Chrome extension</li>'
     '<li>Speaker/organizer at NCCCI 2026</li>'
     '</ul></div>', unsafe_allow_html=True)
